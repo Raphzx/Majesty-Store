@@ -1,0 +1,12 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteCond %{THE_REQUEST} \.php[/\s?] [NC]
+RewriteRule ^(.*)\.php$ $1 [R=302,L]
+
+RewriteCond %{THE_REQUEST} \ /index[\s?] [NC]
+RewriteRule ^index$ ./ [R=302,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
